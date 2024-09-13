@@ -11,11 +11,10 @@
             height: 100%;
             width: 100%;
             background-color: #f0f8ff;
-            color: #ffffff;
+            color: #333;
             font-family: Arial, sans-serif;
             font-size: 17px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             line-height: 1.6;
@@ -25,12 +24,12 @@
             position: relative;
             width: 90%;
             max-width: 500px;
-            height: 350px;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 15px rgb(49, 49, 49);
             overflow: hidden;
             box-sizing: border-box;
+            height: auto;
         }
 
         .cover {
@@ -42,9 +41,9 @@
             background-color: #fff;
             border-bottom: 5px solid #333;
             text-align: center;
-            line-height: 350px;
+            line-height: 200px;
             color: #ff69b4;
-            font-size: 64px;
+            font-size: 2em;
             cursor: pointer;
         }
 
@@ -69,12 +68,12 @@
         }
 
         .details {
-            font-size: 19px;
+            font-size: 1.2em;
         }
 
         .footer {
-            margin-top: 40px;
-            font-size: 19px;
+            margin-top: 20px;
+            font-size: 1em;
         }
 
         a {
@@ -87,50 +86,32 @@
         }
 
         @media screen and (max-width: 1080px) {
-            h1 {
-                font-size: 34px;
-            }
-
-            p, ul {
-                font-size: 18px;
-            }
-
-            li {
-                margin: 9px 0;
+            .cover {
+                line-height: 150px;
+                font-size: 1.5em;
             }
 
             .content {
-                max-width: 90%;
                 padding: 15px;
             }
 
-            .container {
-                width: 95%;
-                height: auto;
+            .details, .footer {
+                font-size: 1em;
             }
         }
 
         @media screen and (max-width: 600px) {
-            h1 {
-                font-size: 30px;
-            }
-
-            p, ul {
-                font-size: 16px;
-            }
-
-            li {
-                margin: 8px 0;
+            .cover {
+                line-height: 120px;
+                font-size: 1.2em;
             }
 
             .content {
-                max-width: 95%;
                 padding: 10px;
             }
 
-            .container {
-                width: 100%;
-                height: auto;
+            .details, .footer {
+                font-size: 0.9em;
             }
         }
     </style>
