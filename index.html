@@ -22,14 +22,12 @@
 
         .container {
             position: relative;
-            width: 90%;
-            max-width: 500px;
+            width: 750px;
+            height: 350px;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 15px rgb(49, 49, 49);
             overflow: hidden;
-            box-sizing: border-box;
-            height: auto;
         }
 
         .cover {
@@ -41,9 +39,9 @@
             background-color: #fff;
             border-bottom: 5px solid #333;
             text-align: center;
-            line-height: 200px;
+            line-height: 350px;
             color: #ff69b4;
-            font-size: 2em;
+            font-size: 4em;
             cursor: pointer;
         }
 
@@ -53,7 +51,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            padding: 15px;
+            padding: 30px;
             background-color: rgba(255, 255, 255, 0.9);
             box-sizing: border-box;
             transform: translateX(100%);
@@ -68,12 +66,12 @@
         }
 
         .details {
-            font-size: 1.2em;
+            font-size: 1.5em;
         }
 
         .footer {
-            margin-top: 20px;
-            font-size: 1em;
+            margin-top: 50px;
+            font-size: 1.2em;
         }
 
         a {
@@ -87,30 +85,28 @@
 
         @media screen and (max-width: 1080px) {
             .cover {
-                line-height: 150px;
-                font-size: 1.5em;
+                font-size: 1em;
             }
 
-            .content {
-                padding: 15px;
+            .details {
+                font-size: 1.2em;
             }
 
-            .details, .footer {
+            .footer {
                 font-size: 1em;
             }
         }
 
         @media screen and (max-width: 600px) {
             .cover {
-                line-height: 120px;
-                font-size: 1.2em;
+                font-size: 0.8em;
             }
 
-            .content {
-                padding: 10px;
+            .details {
+                font-size: 1em;
             }
 
-            .details, .footer {
+            .footer {
                 font-size: 0.9em;
             }
         }
@@ -126,7 +122,7 @@
                 <p>May all your dreams come true on your special day.</p>
             </div>
             <div class="footer">
-                <p><a href="https://www.facebook.com/kawaii.meaow">01 / 06</a></p>
+                <p><a href="https://example.com">01 / 06</a></p>
             </div>
         </div>
     </div>
