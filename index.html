@@ -1,150 +1,222 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Website</title>
+    <title>What the website ?</title>
     <style>
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
-            background-color: #f0f8ff;
             color: #ff69b4;
             font-family: Arial, sans-serif;
             font-size: 17px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             line-height: 1.6;
-        }
-
-        .container {
             position: relative;
-            width: 750px;
-            height: 350px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgb(49, 49, 49);
             overflow: hidden;
+            user-select: none;
+            background: linear-gradient(135deg, #ffffff, #ff69b4);
+            background-size: 400% 400%;
+            animation: gradientBG 8s ease infinite;
         }
 
-        .cover {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            border-bottom: 5px solid #333;
-            text-align: center;
-            line-height: 350px;
-            color: #ff69b4;
-            font-size: 4em;
-            cursor: pointer;
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .content {
-            position: absolute;
-            top: 0;
-            left: 0;
+            background-color: rgba(255, 255, 255);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgb(255, 105, 180, 0.8);
+            max-width: 700px;
             width: 100%;
-            height: 100%;
-            padding: 30px;
-            background-color: rgba(255, 255, 255, 0.9);
             box-sizing: border-box;
-            transform: translateX(100%);
-            transition: transform 0.5s ease;
-            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .section {
+            width: 45%;
             text-align: center;
-            line-height: 1.6;
         }
 
-        .content.open {
-            transform: translateX(0);
+        h1 {
+            font-size: 35px;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        .details {
-            font-size: 1.5em;
+        h3 {
+            color: rgb(255, 105, 180);
         }
 
-        .footer {
-            margin-top: 50px;
-            font-size: 1.2em;
+        p, ul {
+            font-size: 19px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
         }
 
         a {
             color: #ff69b4;
             text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: #ff69b4;
+            text-decoration: none;
+        }
+
+        a:active {
+            color: #585858;
+        }
+
+        a.clicked {
+            animation: fadeIn 1.5s forwards;
+            pointer-events: none;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: transparent;
+            border: 8px solid rgba(255, 105, 180, 0.8);
+            transform: scale(0);
+            animation: expandFade 0.5s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes expandFade {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
         }
 
         @media screen and (max-width: 1080px) {
-    .container {
-        width: 90%;
-        height: auto;
-    }
+            h1 {
+                font-size: 34px;
+            }
 
-    .cover {
-        font-size: 2em;
-        line-height: 1.5;
-    }
+            p, ul {
+                font-size: 18px;
+            }
 
-    .details {
-        font-size: 1.2em;
-    }
+            li {
+                margin: 9px 0;
+            }
 
-    .footer {
-        font-size: 1em;
-    }
-}
+            .content {
+                max-width: 90%;
+                padding: 15px;
+            }
+        }
 
-@media screen and (max-width: 600px) {
-    .container {
-        width: 100%;
-        height: auto;
-    }
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
 
-    .cover {
-        font-size: 1.5em;
-        line-height: 1.2;
-    }
+            p, ul {
+                font-size: 16px;
+            }
 
-    .details {
-        font-size: 1em;
-    }
+            li {
+                margin: 8px 0;
+            }
 
-    .footer {
-        font-size: 0.9em;
-    }
-}
+            .content {
+                max-width: 95%;
+                padding: 10px;
+                flex-direction: column;
+            }
 
+            .section {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="cover" onclick="toggleContent()">OPEN</div>
-        <div class="content" id="content">
-            <h1 class="birthday-message">Happy Birthday, [P Game]</h1>
-            <div class="details">
-                <p>Wishing you a day filled with happiness!</p>
-                <p>May all your dreams come true on your special day.</p>
-            </div>
-            <div class="footer">
-                <p><a href="https://www.facebook.com/kawaii.meaow">01 / 06</a></p>
-            </div>
+    <h1>Happy birthday to you</h1>
+    <div class="content">
+        <div class="section">
+            <h1>Who?</h1>
+            <ul>
+                <li><a href="https://www.facebook.com/kawaii.meaow" onclick="fadeLink(this)">P Gameeeeeeemy</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h1>01/06/25</h1>
+            <h3>Wishing you a day filled with happiness!</h3>
+            <h3>May all your dreams come true on your special day.</h3>
         </div>
     </div>
+
+    <iframe style="margin-top: 20px;" src="https://open.spotify.com/embed/track/5aXky1C28nHvbtc3yUqJc1" width="30%" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+
     <script>
-        function toggleContent() {
-            var content = document.getElementById('content');
-            content.classList.toggle('open');
-            var cover = document.querySelector('.cover');
-            cover.style.display = content.classList.contains('open') ? 'none' : 'block';
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('mousedown', function(e) {
+            if (e.button === 0) {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            const circle = document.createElement('div');
+            circle.className = 'circle';
+            document.body.appendChild(circle);
+            const size = Math.random() * 50 + 50;
+            circle.style.width = size + 'px';
+            circle.style.height = size + 'px';
+            circle.style.left = event.pageX - size / 2 + 'px';
+            circle.style.top = event.pageY - size / 2 + 'px';
+            setTimeout(() => {
+                document.body.removeChild(circle);
+            }, 500);
+        });
+
+        function fadeLink(link) {
+            link.classList.add('clicked');
         }
     </script>
 </body>
